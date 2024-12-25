@@ -7,10 +7,10 @@ const app = express();
 const port = 8080;
 
 const bot = new TelegramBot(process.env.BOT_TOKEN);
-const WEBHOOK_URL = 'https://translator-bot.fly.dev/bot-webhook';
+const WEBHOOK_URL = 'https://chatgpt-translator-bot.vercel.app/';
+const USERS_API_URL = 'https://663f22bfe3a7c3218a4c2f6f.mockapi.io/users'
 
 bot.setWebHook(WEBHOOK_URL);
-
 app.use(express.json());
 
 app.get("/", (req, res) => {
