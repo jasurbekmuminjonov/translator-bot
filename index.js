@@ -11,7 +11,7 @@ bot.setWebHook('https://chatgpt-translator-bot.vercel.app/');
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.status(200).json({ message: "Hello world" })
+    res.status(200).json({ message: "Hello world!" })
 })
 
 app.post('/', (req, res) => {
