@@ -5,12 +5,9 @@ const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
 const app = express();
 const port = 8080;
-
 const bot = new TelegramBot(process.env.BOT_TOKEN);
-const WEBHOOK_URL = 'https://chatgpt-translator-bot.vercel.app/';
-const USERS_API_URL = 'https://663f22bfe3a7c3218a4c2f6f.mockapi.io/users'
 
-bot.setWebHook(WEBHOOK_URL);
+bot.setWebHook('https://chatgpt-translator-bot.vercel.app/');
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -29,11 +26,11 @@ bot.onText(/\/start/, async (msg) => {
 
     bot.sendMessage(chatId, `👋Salom, ${userName}! ChatGPT Translator botga xush kelibsiz\nBot o'zbekchadan-ruschaga va ruschadan-o'zbekchaga tarjima qila oladi. Tarjima qilish uchun shunchaki matnni yuboring\n\n👋Привет, ${userName}! Добро пожаловать в ChatGPT Translator bot\nБот может переводить с узбекского на русский и с русского на узбекский. Для перевода просто отправьте текст`);
     try {
-        const response = await axios.get(USERS_API_URL);
+        const response = await axios.get('https://663f22bfe3a7c3218a4c2f6f.mockapi.io/users');
         const existingUser = response.data.find(user => user.telegram_id === telegramId);
 
         if (!existingUser) {
-            await axios.post(USERS_API_URL, {
+            await axios.post('https://663f22bfe3a7c3218a4c2f6f.mockapi.io/users', {
                 telegram_id: telegramId,
                 name: userName
             });
@@ -48,7 +45,7 @@ bot.onText(/\/start/, async (msg) => {
 
 async function translateText(userInput) {
     try {
-        const response = await axios.post(OPENAI_API_URL, {
+        const response = await axios.post('https://api.openai.com/v1/chat/completions', {
             model: 'gpt-4',
             messages: [
                 {
