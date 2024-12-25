@@ -13,11 +13,11 @@ bot.setWebHook(WEBHOOK_URL);
 
 app.use(express.json());
 
-app.get("/bot-webhook", (req, res) => {
+app.get("/", (req, res) => {
     res.status(200).json({ message: "Hello world" })
 })
 
-app.post('/bot-webhook', (req, res) => {
+app.post('/', (req, res) => {
     bot.processUpdate(req.body);
     res.sendStatus(200);
 });
