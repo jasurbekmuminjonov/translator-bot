@@ -7,7 +7,7 @@ const app = express();
 const port = 8080;
 const bot = new TelegramBot(process.env.BOT_TOKEN);
 
-bot.setWebHook('https://chatgpt-translator-bot.vercel.app/');
+// bot.setWebHook('https://chatgpt-translator-bot.vercel.app/');
 app.use(express.json());
 
 app.get("/", (req, res) => {
