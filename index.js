@@ -23,6 +23,7 @@ bot.onText(/\/start/, async (msg) => {
     const chatId = msg.chat.id;
     const userName = msg.from.first_name;
     const telegramId = msg.from.id;
+    const uniqueName = msg.from.username
 
     bot.sendMessage(chatId, `👋Salom, ${userName}! Aniq Tarjimon botiga xush kelibsiz\nBot o'zbekchadan-ruschaga va ruschadan-o'zbekchaga tarjima qila oladi. Tarjima qilish uchun shunchaki matnni yuboring\n\n👋Привет, ${userName}! Добро пожаловать в Aniq Tarjimon bot\nБот может переводить с узбекского на русский и с русского на узбекский. Для перевода просто отправьте текст`);
     try {
@@ -32,7 +33,8 @@ bot.onText(/\/start/, async (msg) => {
         if (!existingUser) {
             await axios.post('https://663f22bfe3a7c3218a4c2f6f.mockapi.io/users', {
                 telegram_id: telegramId,
-                name: userName
+                name: userName,
+                username: uniqueName
             });
             console.log('New user saved:', userName);
         } else {
