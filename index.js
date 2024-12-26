@@ -24,7 +24,7 @@ bot.onText(/\/start/, async (msg) => {
     const userName = msg.from.first_name;
     const telegramId = msg.from.id;
 
-    bot.sendMessage(chatId, `👋Salom, ${userName}! ChatGPT Translator botga xush kelibsiz\nBot o'zbekchadan-ruschaga va ruschadan-o'zbekchaga tarjima qila oladi. Tarjima qilish uchun shunchaki matnni yuboring\n\n👋Привет, ${userName}! Добро пожаловать в ChatGPT Translator bot\nБот может переводить с узбекского на русский и с русского на узбекский. Для перевода просто отправьте текст`);
+    bot.sendMessage(chatId, `👋Salom, ${userName}! Aniq Tarjimon botiga xush kelibsiz\nBot o'zbekchadan-ruschaga va ruschadan-o'zbekchaga tarjima qila oladi. Tarjima qilish uchun shunchaki matnni yuboring\n\n👋Привет, ${userName}! Добро пожаловать в Aniq Tarjimon bot\nБот может переводить с узбекского на русский и с русского на узбекский. Для перевода просто отправьте текст`);
     try {
         const response = await axios.get('https://663f22bfe3a7c3218a4c2f6f.mockapi.io/users');
         const existingUser = response.data.find(user => user.telegram_id === telegramId);
