@@ -50,7 +50,7 @@ async function translateText(userInput) {
             messages: [
                 {
                     role: 'system',
-                    content: 'if the text is in Uzbek, translate it into Russian, if it is in Russian, translate it into Uzbek. If a mistake occurs during translation and the desired result is not achieved, respond as follows: "🇺🇿Tarjima qilishda muammo yuzaga keldi\n🇷🇺Возникла проблема при переводе"'
+                    content: 'You are a translation bot. If the text is in Uzbek, translate it into Russian. If the text is in Russian, translate it into Uzbek. If the text is in any other language or there is an issue with translation, reply with: "🇺🇿Tarjima qilishda muammo yuzaga keldi\n🇷🇺Возникла проблема при переводе". Ensure the translation is natural, fluent, and accurate. Avoid unrelated responses or explanations.'
                 },
                 {
                     role: 'user',
