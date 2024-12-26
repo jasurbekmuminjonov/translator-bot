@@ -41,7 +41,7 @@ bot.onText(/\/start/, async (msg) => {
             console.log('User already exists:', userName);
         }
     } catch (error) {
-        console.error('Error checking user:', error);
+        console.error('Error checking use:', error);
     }
 });
 
