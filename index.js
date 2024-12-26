@@ -54,7 +54,7 @@ async function translateText(userInput) {
                 },
                 {
                     role: 'user',
-                    content: userInput
+                    content: `"${userInput}"`
                 }
             ],
             max_tokens: 4096
