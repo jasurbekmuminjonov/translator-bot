@@ -103,5 +103,5 @@ bot.on('message', (msg) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server http://localhost:${port} manzilida ishlamoqda`);
+    console.log(`Server http://localhost:${port} manzilida ishlamoqda.`);
 });
